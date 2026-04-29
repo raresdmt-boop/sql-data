@@ -1,0 +1,28 @@
+USE sales_db;
+
+INSERT INTO sales (salesperson, region, product, quantity, unit_price, sold_at) VALUES
+    ('Andrei Popescu',  'North',  'Laptop',     2, 4500.00, '2025-05-12 10:30:00'),
+    ('Maria Ionescu',   'South',  'Phone',      5, 3200.00, '2025-05-18 14:00:00'),
+    ('George Dinu',     'East',   'Tablet',     3, 1800.00, '2025-06-02 09:15:00'),
+    ('Andrei Popescu',  'North',  'Laptop',     1, 4800.00, '2025-06-15 11:00:00'),
+    ('Ana Stan',        'West',   'Headphones', 8,  650.00, '2025-07-01 16:45:00'),
+    ('Maria Ionescu',   'South',  'Phone',      3, 3300.00, '2025-07-09 13:30:00'),
+    ('George Dinu',     'East',   'Laptop',     2, 4600.00, '2025-08-03 10:00:00'),
+    ('Andrei Popescu',  'North',  'Tablet',     4, 1900.00, '2025-08-22 15:20:00'),
+    ('Ana Stan',        'West',   'Phone',      6, 3100.00, '2025-09-05 09:00:00'),
+    ('Cristian Matei',  'South',  'Headphones',12,  600.00, '2025-09-18 11:30:00'),
+    ('Maria Ionescu',   'South',  'Laptop',     1, 5000.00, '2025-10-02 14:00:00'),
+    ('Andrei Popescu',  'North',  'Phone',      2, 3400.00, '2025-10-15 17:00:00'),
+    ('George Dinu',     'East',   'Tablet',     5, 1850.00, '2025-11-01 10:00:00'),
+    ('Ana Stan',        'West',   'Laptop',     3, 4700.00, '2025-11-20 12:30:00'),
+    ('Cristian Matei',  'South',  'Phone',      4, 3250.00, '2025-12-03 09:45:00'),
+    ('Maria Ionescu',   'South',  'Headphones', 9,  680.00, '2025-12-15 16:00:00'),
+    ('Andrei Popescu',  'North',  'Tablet',     2, 1950.00, '2026-01-08 11:00:00'),
+    ('George Dinu',     'East',   'Phone',      7, 3150.00, '2026-01-22 13:00:00'),
+    ('Ana Stan',        'West',   'Laptop',     1, 4750.00, '2026-02-04 10:30:00'),
+    ('Cristian Matei',  'South',  'Tablet',     3, 1900.00, '2026-02-17 15:00:00'),
+    ('Maria Ionescu',   'South',  'Phone',      5, 3300.00, '2026-03-05 09:30:00'),
+    ('Andrei Popescu',  'North',  'Headphones',10,  700.00, '2026-03-20 14:00:00'),
+    ('George Dinu',     'East',   'Laptop',     2, 4900.00, '2026-04-03 10:00:00'),
+    ('Ana Stan',        'West',   'Phone',      4, 3200.00, '2026-04-15 12:00:00'),
+    ('Cristian Matei',  'South',  'Tablet',     6, 1880.00, '2026-04-25 16:30:00');
