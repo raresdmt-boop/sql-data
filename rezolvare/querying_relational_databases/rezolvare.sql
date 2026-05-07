@@ -102,3 +102,110 @@ CREATE TABLE product_categories(
     CONSTRAINT FOREIGN KEY (product_id) REFERENCES products(id),
     CONSTRAINT FOREIGN KEY (category_id) REFERENCES categories(id)
 )
+
+------ EX 1
+SELECT students.first_name, students.last_name, courses.name, enrollments.grade
+FROM students
+INNER JOIN enrollments ON students.id = enrollments.student_id
+INNER JOIN courses ON enrollments.course_id = courses.id
+WHERE grade IS NOT NULL;
+-- MI-AU APARUT 18 THO
+
+------- EX 2
+SELECT courses.name, instructors.first_name, instructors.last_name
+FROM courses
+INNER JOIN instructors ON courses.instructor_id = instructors.id;
+
+
+------- EX 3
+SELECT students.first_name, courses.name
+FROM students
+INNER JOIN enrollments ON students.id = enrollments.student_id
+INNER JOIN courses ON enrollments.course_id = courses.id
+
+------- EX 4
+SELECT students.first_name, courses.name, instructors.last_name
+FROM students
+INNER JOIN enrollments ON students.id = enrollments.student_id
+INNER JOIN courses ON enrollments.course_id = courses.id
+INNER JOIN instructors ON courses.instructor_id = instructors.id
+WHERE grade > 8.0 ;
+
+------ EX 5
+SELECT students.first_name, students.last_name, enrollments.grade
+FROM students
+INNER JOIN enrollments ON students.id = enrollments.student_id
+INNER JOIN courses ON enrollments.course_id = courses.id
+where name = 'Databases'
+
+------ EX 6
+SELECT courses.name, instructors.first_name, last_name
+FROM courses
+LEFT JOIN instructors ON courses.instructor_id = instructors.id;
+
+------ EX 7
+SELECT students.first_name, students.last_name, COUNT(enrollments.course_id) AS number_of_classes
+FROM students
+JOIN enrollments ON students.id = enrollments.student_id
+GROUP BY students.id;
+
+-- SAU
+SELECT students.first_name, students.last_name, COUNT(enrollments.ORICE) AS number_of_classes
+FROM students
+JOIN enrollments ON students.id = enrollments.student_id
+GROUP BY students.id; <-- AICI E SCHEMA
+
+------ EX 8
+SELECT courses.name, enrollments.student_id
+FROM courses
+LEFT JOIN enrollments ON courses.id = enrollments.course_id
+WHERE student_id IS NULL;
+
+------ EX 9
+???????
+
+------ EX 10
+SELECT email FROM students
+UNION
+SELECT CONCAT(first_name,' ',last_name) AS email
+FROM instructors;
+
+------ EX 11
+-- nu am observat nicio diferenta
+
+------ EX 12
+SELECT students.first_name, students.last_name
+FROM students
+WHERE students.id IN (
+    SELECT student_id FROM enrollments WHERE grade>9.0
+    )
+
+------ EX 13
+SELECT courses.name
+FROM courses
+JOIN enrollments ON courses.id = enrollments.course_id
+GROUP BY course_id HAVING COUNT(enrollments.student_id) > 1;
+
+------ EX 14
+
+
+
+--- PROVOCARE 1
+SELECT
+    c.name,
+    COUNT(e.course_id) AS numarul_de_studenti
+FROM courses c
+JOIN enrollments e ON e.course_id = c.id
+GROUP BY c.id
+ORDER BY numarul_de_studenti DESC
+LIMIT 3
+
+---- PROVOCARE 2
+SELECT
+    CONCAT(i.first_name,' ',i.last_name) AS nume_profesor,
+    COUNT(DISTINCT e.student_id) AS numarul_de_studenti
+FROM instructors i
+JOIN courses c ON c.instructor_id = i.id
+JOIN enrollments e ON e.course_id = c.id
+GROUP BY i.id
+ORDER BY numarul_de_studenti DESC;
